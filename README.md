@@ -154,7 +154,7 @@ if (UniBamini) {
 
 ## 📜 License
 
-Licensed under the **MIT License** – free to use, modify, and distribute.
+Licensed under the **GNU Affero General Public License v3.0**.
 See the [LICENSE](./LICENSE) file for details.
 
 ---
