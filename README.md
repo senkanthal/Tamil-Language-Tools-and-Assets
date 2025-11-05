@@ -64,29 +64,29 @@ These exports include **forward-only** mappings (legacy → Unicode).
 
 ## 📚 Available Fonts
 
-| Font Name  | ASCII → Unicode | Unicode → ASCII                   |
-| ---------- | --------------- | --------------------------------- |
-| Anjal      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Anjal1     | ✅ Yes          | ⚠️ Partial / Not always available |
-| Bamini     | ✅ Yes          | ✅ Available                      |
-| Boomi      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Dinakaran  | ✅ Yes          | ⚠️ Partial / Not always available |
-| Dinamani   | ✅ Yes          | ⚠️ Partial / Not always available |
-| Indoweb    | ✅ Yes          | ⚠️ Partial / Not always available |
-| Keyman     | ✅ Yes          | ⚠️ Partial / Not always available |
-| Koeln      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Libi       | ✅ Yes          | ⚠️ Partial / Not always available |
-| Murasoli   | ✅ Yes          | ⚠️ Partial / Not always available |
-| Mylai      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Nakkeeran  | ✅ Yes          | ⚠️ Partial / Not always available |
-| Oldvikatan | ✅ Yes          | ⚠️ Partial / Not always available |
-| Roman      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Senthamizh | ✅ Yes          | ⚠️ Partial / Not always available |
-| Tab        | ✅ Yes          | ⚠️ Partial / Not always available |
-| Tam        | ✅ Yes          | ⚠️ Partial / Not always available |
-| Thanthy    | ✅ Yes          | ⚠️ Partial / Not always available |
-| Tscii      | ✅ Yes          | ⚠️ Partial / Not always available |
-| Webulagam  | ✅ Yes          | ⚠️ Partial / Not always available |
+| Font Name  | ASCII → Unicode | Unicode → ASCII  |
+| ---------- | --------------- | ---------------- |
+| Anjal      | ✅ Yes          | ⚠️ Not available |
+| Anjal1     | ✅ Yes          | ⚠️ Not available |
+| Bamini     | ✅ Yes          | ✅ Available     |
+| Boomi      | ✅ Yes          | ⚠️ Not available |
+| Dinakaran  | ✅ Yes          | ⚠️ Not available |
+| Dinamani   | ✅ Yes          | ⚠️ Not available |
+| Indoweb    | ✅ Yes          | ⚠️ Not available |
+| Keyman     | ✅ Yes          | ✅ Available     |
+| Koeln      | ✅ Yes          | ⚠️ Not available |
+| Libi       | ✅ Yes          | ⚠️ Not available |
+| Murasoli   | ✅ Yes          | ⚠️ Not available |
+| Mylai      | ✅ Yes          | ⚠️ Not available |
+| Nakkeeran  | ✅ Yes          | ⚠️ Not available |
+| Oldvikatan | ✅ Yes          | ⚠️ Not available |
+| Roman      | ✅ Yes          | ⚠️ Not available |
+| Senthamizh | ✅ Yes          | ⚠️ Not available |
+| Tab        | ✅ Yes          | ✅ Available     |
+| Tam        | ✅ Yes          | ⚠️ Not available |
+| Thanthy    | ✅ Yes          | ⚠️ Not available |
+| Tscii      | ✅ Yes          | ✅ Available     |
+| Webulagam  | ✅ Yes          | ⚠️ Not available |
 
 ---
 
