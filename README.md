@@ -1,1 +1,160 @@
-# Tamil-Language-Tools-and-Assets
+# 📝 Tamil Language Tools and Assets
+
+A comprehensive collection of **regular expression mappings** for converting between **legacy Tamil ASCII fonts** and **Unicode Tamil**.
+
+Ideal for building Tamil text converters, font migration tools, OCR post-processors, and web-based Tamil typing systems.
+
+---
+
+## 📦 Repository Structure
+
+```text
+Tamil-Language-Tools-and-Assets/
+│
+├── index.ts                     # Root entry – exports combined regex objects (some include reverse)
+└── assets/
+    ├── allRegExData/
+    │   └── index.ts             # Combines all fonts (forward + available reverse mappings)
+    └── fontRegExData/
+        ├── index.ts             # Exports all individual font mappings (forward only)
+        ├── Bamini/
+        │   └── index.ts
+        ├── Anjal/
+        │   └── index.ts
+        ├── Tab/
+        │   └── index.ts
+        └── ... other fonts
+```
+
+---
+
+## 🧩 Export Structure
+
+### **Default Export (All Fonts + Available Reverses)**
+
+The root `index.ts` exports the combined `allRegExData` object, which includes **all forward mappings** and **reverse mappings** for the fonts that have them.
+
+```ts
+import allRegExData from './index';
+
+const { Bamini, UniBamini } = allRegExData;
+
+console.log(Bamini); // ASCII → Unicode
+console.log(UniBamini); // Unicode → ASCII (if defined)
+```
+
+> ⚠️ Not every font has a reverse mapping — `Uni*` entries only exist where conversion rules are fully defined.
+
+---
+
+### **Per-Font Imports (Forward Only)**
+
+If you only need a specific font for ASCII → Unicode conversion, you can import it directly:
+
+```ts
+import { Bamini, Anjal } from './assets/fontRegExData';
+
+console.log(Bamini);
+console.log(Anjal);
+```
+
+These exports include **forward-only** mappings (legacy → Unicode).
+
+---
+
+## 📚 Available Fonts
+
+| Font Name  | ASCII → Unicode | Unicode → ASCII                   |
+| ---------- | --------------- | --------------------------------- |
+| Anjal      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Anjal1     | ✅ Yes          | ⚠️ Partial / Not always available |
+| Bamini     | ✅ Yes          | ✅ Available                      |
+| Boomi      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Dinakaran  | ✅ Yes          | ⚠️ Partial / Not always available |
+| Dinamani   | ✅ Yes          | ⚠️ Partial / Not always available |
+| Indoweb    | ✅ Yes          | ⚠️ Partial / Not always available |
+| Keyman     | ✅ Yes          | ⚠️ Partial / Not always available |
+| Koeln      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Libi       | ✅ Yes          | ⚠️ Partial / Not always available |
+| Murasoli   | ✅ Yes          | ⚠️ Partial / Not always available |
+| Mylai      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Nakkeeran  | ✅ Yes          | ⚠️ Partial / Not always available |
+| Oldvikatan | ✅ Yes          | ⚠️ Partial / Not always available |
+| Roman      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Senthamizh | ✅ Yes          | ⚠️ Partial / Not always available |
+| Tab        | ✅ Yes          | ⚠️ Partial / Not always available |
+| Tam        | ✅ Yes          | ⚠️ Partial / Not always available |
+| Thanthy    | ✅ Yes          | ⚠️ Partial / Not always available |
+| Tscii      | ✅ Yes          | ⚠️ Partial / Not always available |
+| Webulagam  | ✅ Yes          | ⚠️ Partial / Not always available |
+
+---
+
+## ⚙️ Type Definition
+
+```ts
+interface RegexMapping {
+  [fontName: string]: (string | RegExp)[][]; // forward mappings
+  [uniFontName?: string]: (string | RegExp)[][]; // optional reverse mappings
+}
+
+declare const allRegExData: RegexMapping;
+export default allRegExData;
+```
+
+Each mapping is an array of `[pattern, replacement]` pairs.
+
+---
+
+## 💡 Usage Examples
+
+### Convert Bamini → Unicode
+
+```ts
+import { Bamini } from './assets/fontRegExData/Bamini';
+
+function convert(text: string, mapping: (string | RegExp)[][]): string {
+  return mapping.reduce(
+    (acc, [pattern, replacement]) =>
+      acc.replace(pattern as RegExp, replacement as string),
+    text
+  );
+}
+
+console.log(convert('fp fh f', Bamini)); // → தமிழ்
+```
+
+---
+
+### Convert Unicode → Bamini (if available)
+
+```ts
+import allRegExData from './index';
+
+const { UniBamini } = allRegExData;
+
+if (UniBamini) {
+  console.log(convert('தமிழ்', UniBamini)); // → fp fh f
+} else {
+  console.warn('Reverse mapping not available for this font.');
+}
+```
+
+---
+
+## 🧩 Notes
+
+- **Per-font exports** → only **forward (ASCII → Unicode)**
+- **`allRegExData`** → includes **forward mappings for all**, and **reverse mappings** only for fonts that support it
+- **Consistent naming**:
+  - `FontName` = forward (ASCII → Unicode)
+  - `UniFontName` = reverse (Unicode → ASCII, optional)
+
+---
+
+## 📜 License
+
+Licensed under the **MIT License** – free to use, modify, and distribute.
+See the [LICENSE](./LICENSE) file for details.
+
+---

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* Language and target */
+    "target": "ES2020",
+    "lib": ["esnext"],
+
+    /* Module resolution */
+    "module": "esnext",
+    "moduleResolution": "node",
+
+    /* Project structure */
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+
+    /* TypeScript strictness */
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    /* Build control */
+    "noEmit": true /** Change to false only if want compiled JS output */,
+    "isolatedModules": false,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["index.ts", "assets/**/*.ts"],
+  "exclude": ["node_modules"]
+}
