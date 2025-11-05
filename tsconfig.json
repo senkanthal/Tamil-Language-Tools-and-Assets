@@ -5,7 +5,7 @@
     "lib": ["esnext"],
 
     /* Module resolution */
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
 
     /* Project structure */
@@ -23,9 +23,11 @@
     "resolveJsonModule": true,
 
     /* Build control */
-    "noEmit": true /** Change to false only if want compiled JS output */,
+    "noEmit": false,
+    "outDir": "dist",
     "isolatedModules": false,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true
   },
   "include": ["index.ts", "assets/**/*.ts"],
   "exclude": ["node_modules"]
