@@ -52,7 +52,7 @@ console.log(UniBamini); // Unicode → ASCII (if defined)
 If you only need a specific font for ASCII → Unicode conversion, you can import it directly:
 
 ```ts
-import { Bamini, Anjal } from './assets/fontRegExData';
+import { Bamini, Anjal } from './index';
 
 console.log(Bamini);
 console.log(Anjal);
@@ -88,6 +88,18 @@ These exports include **forward-only** mappings (legacy → Unicode).
 | Tscii      | ✅ Yes          | ✅ Available     |
 | Webulagam  | ✅ Yes          | ⚠️ Not available |
 
+### **Available Fonts Array**
+
+You can also import an array of available font names:
+
+```ts
+import { availableFonts } from './index';
+
+console.log(availableFonts); // ['Anjal', 'Anjal1', 'Bamini', ...]
+```
+
+This array contains all supported font names for easy iteration and validation.
+
 ---
 
 ## ⚙️ Type Definition
@@ -111,7 +123,7 @@ Each mapping is an array of `[pattern, replacement]` pairs.
 ### Convert Bamini → Unicode
 
 ```ts
-import { Bamini } from './assets/fontRegExData/Bamini';
+import { Bamini } from './index';
 
 function convert(text: string, mapping: (string | RegExp)[][]): string {
   return mapping.reduce(

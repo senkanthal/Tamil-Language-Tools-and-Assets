@@ -1,0 +1,25 @@
+const availableFonts = [
+  'Anjal',
+  'Anjal1',
+  'Bamini',
+  'Boomi',
+  'Dinakaran',
+  'Dinamani',
+  'Indoweb',
+  'Keyman',
+  'Koeln',
+  'Libi',
+  'Murasoli',
+  'Mylai',
+  'Nakkeeran',
+  'Oldvikatan',
+  'Roman',
+  'Senthamizh',
+  'Tab',
+  'Tam',
+  'Thanthy',
+  'Tscii',
+  'Webulagam',
+];
+
+export default availableFonts;
