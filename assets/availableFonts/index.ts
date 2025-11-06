@@ -20,6 +20,7 @@ const availableFonts = [
   'Thanthy',
   'Tscii',
   'Webulagam',
+  'Unicode',
 ];
 
 export default availableFonts;
