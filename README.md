@@ -40,7 +40,7 @@ These exports include **forward-only** mappings (legacy → Unicode).
 
 ---
 
-## 📚 Available Fonts
+## Available Fonts
 
 | Font Name  | ASCII → Unicode | Unicode → ASCII  |
 | ---------- | --------------- | ---------------- |
@@ -80,7 +80,7 @@ This array contains all supported font names for easy iteration and validation.
 
 ---
 
-## ⚙️ Type Definition
+## Type Definition
 
 ```ts
 interface RegexMapping {
@@ -96,7 +96,7 @@ Each mapping is an array of `[pattern, replacement]` pairs.
 
 ---
 
-## 💡 Usage Examples
+## Usage Examples
 
 ### Convert Bamini → Unicode
 
@@ -132,7 +132,7 @@ if (UniBamini) {
 
 ---
 
-## 🧩 Notes
+## Notes
 
 - **Per-font exports** → only **forward (ASCII → Unicode)**
 - **`allRegExData`** → includes **forward mappings for all**, and **reverse mappings** only for fonts that support it
@@ -142,7 +142,7 @@ if (UniBamini) {
 
 ---
 
-## 📜 License
+## License
 
 Licensed under the **GNU Affero General Public License v3.0**.
 See the [LICENSE](./LICENSE) file for details.
