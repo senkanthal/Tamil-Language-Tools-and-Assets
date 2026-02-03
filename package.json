@@ -1,14 +1,30 @@
 {
-  "name": "tamil-language-tools-and-assets",
-  "version": "1.0.4",
-  "description": "A collection of tools and assets for processing and analyzing the Tamil language, including regex patterns, datasets, and utilities.",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@senkantal/tamil-language-tools-and-assets",
+  "version": "1.0.8",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "prettier --write ."
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "dependencies": {
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1",
+    "typescript": "^5.9.3"
+  },
   "prettier": {
     "printWidth": 80,
     "tabWidth": 2,
@@ -19,11 +35,5 @@
     "bracketSpacing": true,
     "arrowParens": "always",
     "endOfLine": "auto"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.0",
-    "prettier": "^3.6.2",
-    "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
   }
 }

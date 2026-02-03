@@ -1,34 +1,16 @@
 {
   "compilerOptions": {
-    /* Language and target */
     "target": "ES2020",
-    "lib": ["esnext"],
-
-    /* Module resolution */
     "module": "ESNext",
-    "moduleResolution": "node",
-
-    /* Project structure */
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    },
-
-    /* TypeScript strictness */
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-
-    /* Build control */
-    "noEmit": false,
+    "moduleResolution": "Node",
+    "declaration": true,
+    "declarationMap": true,
     "outDir": "dist",
-    "isolatedModules": false,
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "skipLibCheck": true
   },
-  "include": ["index.ts", "assets/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }

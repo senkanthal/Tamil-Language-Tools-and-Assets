@@ -1,4 +1,4 @@
-# 📝 Tamil Language Tools and Assets
+# Tamil Language Tools and Assets
 
 A comprehensive collection of **regular expression mappings** for converting between **legacy Tamil ASCII fonts** and **Unicode Tamil**.
 
@@ -6,36 +6,14 @@ Ideal for building Tamil text converters, font migration tools, OCR post-process
 
 ---
 
-## 📦 Repository Structure
-
-```text
-Tamil-Language-Tools-and-Assets/
-│
-├── index.ts                     # Root entry – exports combined regex objects (some include reverse)
-└── assets/
-    ├── allRegExData/
-    │   └── index.ts             # Combines all fonts (forward + available reverse mappings)
-    └── fontRegExData/
-        ├── index.ts             # Exports all individual font mappings (forward only)
-        ├── Bamini/
-        │   └── index.ts
-        ├── Anjal/
-        │   └── index.ts
-        ├── Tab/
-        │   └── index.ts
-        └── ... other fonts
-```
-
----
-
-## 🧩 Export Structure
+## Export Structure
 
 ### **Default Export (All Fonts + Available Reverses)**
 
 The root `index.ts` exports the combined `allRegExData` object, which includes **all forward mappings** and **reverse mappings** for the fonts that have them.
 
 ```ts
-import allRegExData from './index';
+import allRegExData from '@senkanthal/tamil-language-tools-and-assets';
 
 const { Bamini, UniBamini } = allRegExData;
 
@@ -52,7 +30,7 @@ console.log(UniBamini); // Unicode → ASCII (if defined)
 If you only need a specific font for ASCII → Unicode conversion, you can import it directly:
 
 ```ts
-import { Bamini, Anjal } from './index';
+import { Bamini, Anjal } from '@senkanthal/tamil-language-tools-and-assets';
 
 console.log(Bamini);
 console.log(Anjal);
@@ -93,7 +71,7 @@ These exports include **forward-only** mappings (legacy → Unicode).
 You can also import an array of available font names:
 
 ```ts
-import { availableFonts } from './index';
+import { availableFonts } from '@senkanthal/tamil-language-tools-and-assets';
 
 console.log(availableFonts); // ['Anjal', 'Anjal1', 'Bamini', ...]
 ```
@@ -123,7 +101,7 @@ Each mapping is an array of `[pattern, replacement]` pairs.
 ### Convert Bamini → Unicode
 
 ```ts
-import { Bamini } from './index';
+import { Bamini } from '@senkanthal/tamil-language-tools-and-assets';
 
 function convert(text: string, mapping: (string | RegExp)[][]): string {
   return mapping.reduce(
@@ -141,7 +119,7 @@ console.log(convert('fp fh f', Bamini)); // → தமிழ்
 ### Convert Unicode → Bamini (if available)
 
 ```ts
-import allRegExData from './index';
+import allRegExData from '@senkanthal/tamil-language-tools-and-assets';
 
 const { UniBamini } = allRegExData;
 
