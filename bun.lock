@@ -3,9 +3,6 @@
   "workspaces": {
     "": {
       "name": "@senkantal/tamil-language-tools-and-assets",
-      "dependencies": {
-        "zod": "^4.3.6",
-      },
       "devDependencies": {
         "prettier": "3.8.1",
         "typescript": "^5.9.3",
@@ -16,7 +13,5 @@
     "prettier": ["prettier@3.8.1", "", { "bin": "bin/prettier.cjs" }, ""],
 
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, ""],
-
-    "zod": ["zod@4.3.6", "", {}, ""],
   }
 }

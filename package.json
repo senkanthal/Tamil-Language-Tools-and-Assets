@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@senkantal/tamil-language-tools-and-assets",
-  "version": "0.0.1",
+  "version": "1.0.8",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,9 +19,6 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write ."
-  },
-  "dependencies": {
-    "zod": "^4.3.6"
   },
   "devDependencies": {
     "prettier": "3.8.1",
