@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@senkantal/tamil-language-tools-and-assets",
+  "name": "tamil-language-tools-and-assets",
   "version": "1.0.8",
   "type": "module",
   "main": "dist/index.js",
