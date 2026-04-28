@@ -1,15 +1,10 @@
 import applyMapping from "../../applyMapping.js";
-import regExpList, { RegExpListType } from "../object.js";
+import regExpList from "../object.js";
 
-type HelperName<Key extends string> = Key extends `Uni${infer Rest}`
-  ? `UnicodeTo${Rest}`
-  : `${Key}ToUnicode`;
-
-export type RegExpHelperType = {
-  [Key in keyof RegExpListType as HelperName<Key & string>]: (
-    text: string,
-  ) => string;
-};
+export type RegExpHelperType = Record<
+  `${string}ToUnicode` | `UnicodeTo${string}`,
+  (text: string) => string
+>;
 
 const toHelperName = (mappingName: string): string =>
   mappingName.startsWith("Uni")

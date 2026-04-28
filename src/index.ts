@@ -1,16 +1,11 @@
-import regExpList, { RegExpListType } from "./regExpData/object.js";
+import regExpList from "./regExpData/object.js";
 import availableRegExp from "./regExpData/availableRegExp.js";
-import regExpHelper, {
-  RegExpHelperType,
-} from "./regExpData/functions/index.js";
-import applyMapping, { RegExpMapping } from "./applyMapping.js";
+import regExpHelper from "./regExpData/functions/index.js";
+import applyMapping from "./applyMapping.js";
+import type { RegExpListType } from "./regExpData/object.js";
+import type { RegExpHelperType } from "./regExpData/functions/index.js";
+import type { RegExpMapping } from "./applyMapping.js";
 
-export {
-  applyMapping,
-  availableRegExp,
-  RegExpHelperType,
-  RegExpListType,
-  RegExpMapping,
-  regExpHelper,
-  regExpList,
-};
+export { applyMapping, availableRegExp, regExpHelper, regExpList };
+
+export type { RegExpHelperType, RegExpListType, RegExpMapping };

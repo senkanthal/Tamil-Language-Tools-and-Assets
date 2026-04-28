@@ -144,10 +144,40 @@ npm run build
 Run the API-level test suite with:
 
 ```bash
+bun test
+```
+
+Run the Bun-native TypeScript tests explicitly with:
+
+```bash
+npm run test:bun
+```
+
+Run the Node-based built-output tests with:
+
+```bash
 npm test
 ```
 
+Or directly:
+
+```bash
+npm run test:node
+```
+
 Tests also run automatically in GitHub Actions on pushes to `main` and on pull requests.
+
+## Releases
+
+This repo uses Changesets for controlled version PRs.
+
+To add a release note entry for a change:
+
+```bash
+npm run changeset
+```
+
+When changesets land on `main`, GitHub Actions opens or updates a `Version Packages` PR with the version bump. Merging that PR updates version files in git, and publishing can still happen separately through the npm publish workflow.
 
 ## License
 
