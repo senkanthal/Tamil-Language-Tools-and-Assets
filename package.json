@@ -6,7 +6,7 @@
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Senkanthal/Tamil-Language-Tools-and-Assets.git"
+    "url": "https://github.com/senkanthal/Tamil-Language-Tools-and-Assets"
   },
   "type": "module",
   "module": "./dist/index.js",
