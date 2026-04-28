@@ -54,6 +54,7 @@ console.log(availableRegExp);
 ### `regExpHelper`
 
 `regExpHelper` exposes ready-to-use conversion helpers such as `BaminiToUnicode` and `UnicodeToBamini`.
+These helpers are generated from `regExpList`, so the mapping tables and helper behavior stay in sync.
 
 ```ts
 import { regExpHelper } from "tamil-language-tools-and-assets";
@@ -124,6 +125,10 @@ export type RegExpMapping = [RegExp | string, string][];
 export type RegExpListType = {
   [key: string]: [RegExp | string, string][];
 };
+
+export type RegExpHelperType = {
+  [helperName: string]: (text: string) => string;
+};
 ```
 
 ## Development
@@ -135,6 +140,14 @@ The published build includes JavaScript and declaration files, without source ma
 ```bash
 npm run build
 ```
+
+Run the API-level test suite with:
+
+```bash
+npm test
+```
+
+Tests also run automatically in GitHub Actions on pushes to `main` and on pull requests.
 
 ## License
 

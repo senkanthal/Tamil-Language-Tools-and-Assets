@@ -1,6 +1,5 @@
-import regExpList from "./object";
+import regExpList, { RegExpListType } from "./object.js";
 
-const keyValues = Object.keys(regExpList);
-const availableRegExp: string[] = [...keyValues];
+const availableRegExp = Object.keys(regExpList) as (keyof RegExpListType)[];
 
 export default availableRegExp;

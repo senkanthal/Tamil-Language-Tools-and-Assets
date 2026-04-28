@@ -4,6 +4,10 @@
   "version": "1.1.0",
   "description": "Tamil ASCII font to Unicode and reverse regex mappings",
   "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Senkanthal/Tamil-Language-Tools-and-Assets.git"
+  },
   "type": "module",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -20,6 +24,8 @@
     "typecheck": "tsc --noEmit",
     "dev": "tsc -p tsconfig.json --watch",
     "build": "tsc -p tsconfig.json",
+    "pretest": "npm run build",
+    "test": "node --test",
     "clean": "rimraf dist",
     "format": "prettier --write .",
     "knip": "knip",
