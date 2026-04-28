@@ -1,7 +1,13 @@
-import allRegExData from './assets/allRegExData';
-import availableFonts from './assets/availableFonts';
-import functionsHelper from './assets/functions';
+import regExpList, { RegExpListType } from "./regExpData/object";
+import availableRegExp from "./regExpData/availableRegExp";
+import regExpHelper from "./regExpData/functions";
+import applyMapping, { RegExpMapping } from "./applyMapping";
 
-export { availableFonts, functionsHelper };
-export * from './assets/regExData/index';
-export default allRegExData;
+export {
+  applyMapping,
+  availableRegExp,
+  RegExpListType,
+  RegExpMapping,
+  regExpHelper,
+  regExpList,
+};

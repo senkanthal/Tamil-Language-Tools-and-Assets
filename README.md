@@ -1,150 +1,141 @@
 # Tamil Language Tools and Assets
 
-A comprehensive collection of **regular expression mappings** for converting between **legacy Tamil ASCII fonts** and **Unicode Tamil**.
+Regular expression mappings and helper functions for converting between legacy Tamil ASCII encodings and Unicode Tamil.
 
-Ideal for building Tamil text converters, font migration tools, OCR post-processors, and web-based Tamil typing systems.
+This package is published as ESM and currently exposes four main runtime exports:
 
----
+- `applyMapping`: a generic utility for applying any mapping table
+- `regExpList`: all regex mapping tables
+- `availableRegExp`: the list of available mapping names
+- `regExpHelper`: helper functions grouped by font/direction
 
-## Export Structure
+## Install
 
-### **Default Export (All Fonts + Available Reverses)**
-
-The root `index.ts` exports the combined `allRegExData` object, which includes **all forward mappings** and **reverse mappings** for the fonts that have them.
-
-```ts
-import allRegExData from '@senkanthal/tamil-language-tools-and-assets';
-
-const { Bamini, UniBamini } = allRegExData;
-
-console.log(Bamini); // ASCII → Unicode
-console.log(UniBamini); // Unicode → ASCII (if defined)
+```bash
+npm install tamil-language-tools-and-assets
 ```
 
-> ⚠️ Not every font has a reverse mapping — `Uni*` entries only exist where conversion rules are fully defined.
+## Exports
 
----
+### `applyMapping`
 
-### **Per-Font Imports (Forward Only)**
-
-If you only need a specific font for ASCII → Unicode conversion, you can import it directly:
+`applyMapping` applies a mapping table to a string in sequence.
 
 ```ts
-import { Bamini, Anjal } from '@senkanthal/tamil-language-tools-and-assets';
+import { applyMapping, regExpList } from "tamil-language-tools-and-assets";
 
-console.log(Bamini);
-console.log(Anjal);
+const converted = applyMapping("fp fh f", regExpList.Bamini);
+console.log(converted);
 ```
 
-These exports include **forward-only** mappings (legacy → Unicode).
+### `regExpList`
 
----
-
-## Available Fonts
-
-| Font Name  | ASCII → Unicode | Unicode → ASCII  |
-| ---------- | --------------- | ---------------- |
-| Anjal      | ✅ Yes          | ⚠️ Not available |
-| Anjal1     | ✅ Yes          | ⚠️ Not available |
-| Bamini     | ✅ Yes          | ✅ Available     |
-| Boomi      | ✅ Yes          | ⚠️ Not available |
-| Dinakaran  | ✅ Yes          | ⚠️ Not available |
-| Dinamani   | ✅ Yes          | ⚠️ Not available |
-| Indoweb    | ✅ Yes          | ⚠️ Not available |
-| Keyman     | ✅ Yes          | ✅ Available     |
-| Koeln      | ✅ Yes          | ⚠️ Not available |
-| Libi       | ✅ Yes          | ⚠️ Not available |
-| Murasoli   | ✅ Yes          | ⚠️ Not available |
-| Mylai      | ✅ Yes          | ⚠️ Not available |
-| Nakkeeran  | ✅ Yes          | ⚠️ Not available |
-| Oldvikatan | ✅ Yes          | ⚠️ Not available |
-| Roman      | ✅ Yes          | ⚠️ Not available |
-| Senthamizh | ✅ Yes          | ⚠️ Not available |
-| Tab        | ✅ Yes          | ✅ Available     |
-| Tam        | ✅ Yes          | ⚠️ Not available |
-| Thanthy    | ✅ Yes          | ⚠️ Not available |
-| Tscii      | ✅ Yes          | ✅ Available     |
-| Webulagam  | ✅ Yes          | ⚠️ Not available |
-
-### **Available Fonts Array**
-
-You can also import an array of available font names:
+`regExpList` is an object whose keys are mapping names such as `Bamini`, `Anjal`, `UniBamini`, and `UniTscii`.
 
 ```ts
-import { availableFonts } from '@senkanthal/tamil-language-tools-and-assets';
+import { regExpList } from "tamil-language-tools-and-assets";
 
-console.log(availableFonts); // ['Anjal', 'Anjal1', 'Bamini', ...]
+const bamini = regExpList.Bamini;
+const unicodeToBamini = regExpList.UniBamini;
 ```
 
-This array contains all supported font names for easy iteration and validation.
+Forward mappings use names like `Bamini` or `Anjal`. Reverse mappings use `Uni*` names when available.
 
----
+### `availableRegExp`
 
-## Type Definition
+`availableRegExp` contains all supported mapping names.
 
 ```ts
-interface RegexMapping {
-  [fontName: string]: (string | RegExp)[][]; // forward mappings
-  [uniFontName?: string]: (string | RegExp)[][]; // optional reverse mappings
-}
+import { availableRegExp } from "tamil-language-tools-and-assets";
 
-declare const allRegExData: RegexMapping;
-export default allRegExData;
+console.log(availableRegExp);
 ```
 
-Each mapping is an array of `[pattern, replacement]` pairs.
+### `regExpHelper`
 
----
-
-## Usage Examples
-
-### Convert Bamini → Unicode
+`regExpHelper` exposes ready-to-use conversion helpers such as `BaminiToUnicode` and `UnicodeToBamini`.
 
 ```ts
-import { Bamini } from '@senkanthal/tamil-language-tools-and-assets';
+import { regExpHelper } from "tamil-language-tools-and-assets";
 
-function convert(text: string, mapping: (string | RegExp)[][]): string {
-  return mapping.reduce(
-    (acc, [pattern, replacement]) =>
-      acc.replace(pattern as RegExp, replacement as string),
-    text
-  );
-}
-
-console.log(convert('fp fh f', Bamini)); // → தமிழ்
+const converted = regExpHelper.BaminiToUnicode("fp fh f");
+console.log(converted);
 ```
 
----
+## Usage
 
-### Convert Unicode → Bamini (if available)
+### Use a mapping table directly
 
 ```ts
-import allRegExData from '@senkanthal/tamil-language-tools-and-assets';
+import { applyMapping, regExpList } from "tamil-language-tools-and-assets";
 
-const { UniBamini } = allRegExData;
-
-if (UniBamini) {
-  console.log(convert('தமிழ்', UniBamini)); // → fp fh f
-} else {
-  console.warn('Reverse mapping not available for this font.');
-}
+console.log(applyMapping("fp fh f", regExpList.Bamini));
 ```
 
----
+### Use a helper function
 
-## Notes
+```ts
+import { regExpHelper } from "tamil-language-tools-and-assets";
 
-- **Per-font exports** → only **forward (ASCII → Unicode)**
-- **`allRegExData`** → includes **forward mappings for all**, and **reverse mappings** only for fonts that support it
-- **Consistent naming**:
-  - `FontName` = forward (ASCII → Unicode)
-  - `UniFontName` = reverse (Unicode → ASCII, optional)
+console.log(regExpHelper.BaminiToUnicode("fp fh f"));
+console.log(regExpHelper.UnicodeToBamini("தமிழ்"));
+```
 
----
+## Available Mappings
+
+The package includes forward mappings for:
+
+- `Anjal`
+- `Anjal1`
+- `Bamini`
+- `Boomi`
+- `Dinakaran`
+- `Dinamani`
+- `Indoweb`
+- `Keyman`
+- `Koeln`
+- `Libi`
+- `Murasoli`
+- `Mylai`
+- `Nakkeeeran`
+- `Oldvikatan`
+- `Roman`
+- `Senthamizh`
+- `Tab`
+- `Tam`
+- `Thanthy`
+- `Tscii`
+- `Webulagam`
+
+Reverse mappings are currently available for:
+
+- `UniBamini`
+- `UniKeyman`
+- `UniTab`
+- `UniTscii`
+
+## Types
+
+The main exported types are:
+
+```ts
+export type RegExpMapping = [RegExp | string, string][];
+
+export type RegExpListType = {
+  [key: string]: [RegExp | string, string][];
+};
+```
+
+## Development
+
+This repo uses a single TypeScript config and builds ESM output into `dist`.
+
+The published build includes JavaScript and declaration files, without source maps or declaration maps.
+
+```bash
+npm run build
+```
 
 ## License
 
-Licensed under the **GNU Affero General Public License v3.0**.
-See the [LICENSE](./LICENSE) file for details.
-
----
+Licensed under the GNU Affero General Public License v3.0. See [LICENSE](./LICENSE).
