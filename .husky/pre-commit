@@ -1,11 +1,11 @@
 if [ -f pnpm-lock.yaml ] && command -v pnpm >/dev/null 2>&1; then
-    pnpm lint
+    pnpm lint-staged
     elif [ -f yarn.lock ] && command -v yarn >/dev/null 2>&1; then
-    yarn lint
+    yarn lint-staged
     elif { [ -f bun.lockb ] || [ -f bun.lock ]; } && command -v bun >/dev/null 2>&1; then
-    bun run lint
+    bunx lint-staged
     elif command -v npm >/dev/null 2>&1; then
-    npm run lint
+    npx lint-staged
 else
     echo "Required package manager is not installed."
     exit 1
